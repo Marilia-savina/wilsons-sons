@@ -41,6 +41,8 @@ function Header() {
   const links = [
     { label: "Início", href: "#inicio" },
     { label: "Sobre", href: "#sobre" },
+    { label: "Vídeo", href: "#video" },
+    { label: "Segurança", href: "#seguranca" },
     { label: "Fale conosco", href: "#agendar" },
     { label: "Contato", href: "#contato" },
   ];
@@ -381,14 +383,17 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-border bg-primary py-10 text-primary-foreground/80">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-8">
+      <div className="container mx-auto flex flex-col items-center gap-6 px-4 text-center md:px-8">
         <div className="flex items-center gap-2">
-          <Anchor className="h-4 w-4 text-accent" />
+          <img src={wsLogo} alt="Wilson, Sons" className="h-6 w-6 object-contain" width={24} height={24} />
           <span className="text-sm font-semibold text-primary-foreground">Wilson, Sons</span>
           <span className="text-xs text-primary-foreground/60">— Agendamento de Visitas</span>
         </div>
         <p className="text-xs text-primary-foreground/60">
           © {new Date().getFullYear()} Wilson, Sons. Todos os direitos reservados.
+        </p>
+        <p className="rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-2 text-xs font-medium text-primary-foreground/90">
+          Projeto Desenvolvido para fins educativos na KODIE Academy
         </p>
       </div>
     </footer>
