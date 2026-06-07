@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Anchor, Ship, Calendar, Users, GraduationCap, Building2, Briefcase, Mail, MapPin, Phone, ArrowRight, ShieldCheck, Clock, Info, AlertTriangle, HardHat, Shirt, Footprints, CheckCircle2, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
