@@ -37,7 +37,7 @@ function Index() {
         <About />
         <VideoSection />
         <Audience />
-        <SafetyRules onAgree={() => setShowForm(true)} />
+        <SafetyRules showForm={showForm} onToggle={() => setShowForm((v) => !v)} />
         {showForm && <Schedule />}
         <Contact />
       </main>
