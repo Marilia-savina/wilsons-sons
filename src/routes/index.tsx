@@ -225,6 +225,132 @@ function Schedule() {
   );
 }
 
+function VideoSection() {
+  return (
+    <section id="video" className="bg-background py-20 md:py-28">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-accent">
+            <PlayCircle className="h-4 w-4" /> Vídeo institucional
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-primary md:text-5xl">
+            Conheça a Wilson, Sons
+          </h2>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Assista à apresentação oficial e veja como operamos nossas unidades portuárias, rebocadores e estaleiros.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-elegant">
+          <div className="relative aspect-video w-full">
+            <iframe
+              src="https://www.youtube.com/embed/l-_KG0HIk9A"
+              title="Vídeo de apresentação Wilson, Sons"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SafetyRules() {
+  const infos = [
+    { icon: Info, title: "Antes da visita", desc: "Você receberá por e-mail a confirmação da data, horário e ponto de encontro na unidade escolhida." },
+    { icon: ShieldCheck, title: "Documentação", desc: "Apresente um documento oficial com foto na portaria. Visitantes estrangeiros devem trazer passaporte." },
+    { icon: Clock, title: "Pontualidade", desc: "Chegue com 15 minutos de antecedência. O acesso é controlado e atrasos podem inviabilizar a entrada." },
+    { icon: Users, title: "Acompanhamento", desc: "Toda a visita é guiada por um colaborador Wilson, Sons. Não circule por áreas operacionais sem escolta." },
+  ];
+  const proibido = [
+    { icon: Shirt, label: "Proibido uso de regatas" },
+    { icon: Shirt, label: "Proibido uso de shorts" },
+    { icon: Footprints, label: "Proibido sapatos abertos" },
+  ];
+  const obrigatorio = [
+    { icon: HardHat, label: "Capacete de segurança" },
+    { icon: Footprints, label: "Botas de proteção" },
+    { icon: ShieldCheck, label: "Colete de segurança" },
+  ];
+  return (
+    <section id="seguranca" className="bg-muted/40 py-20 md:py-28">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-wider text-accent">Etapas de segurança</span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-primary md:text-4xl">
+            O que você precisa saber antes de visitar
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Nossas unidades operam 24 horas com normas rígidas de SMS (Saúde, Meio Ambiente e Segurança). Leia com atenção antes de prosseguir com o agendamento.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {infos.map((i) => (
+            <div key={i.title} className="group rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-elegant">
+              <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gradient-hero text-primary-foreground">
+                <i.icon className="h-5 w-5" />
+              </div>
+              <h3 className="font-semibold text-primary">{i.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{i.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-3xl border border-destructive/30 bg-card p-8 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-destructive/10 text-destructive">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-bold text-primary">Regras de vestuário — Não é permitido</h3>
+            </div>
+            <ul className="mt-6 space-y-3">
+              {proibido.map((p) => (
+                <li key={p.label} className="flex items-center gap-3 rounded-xl border border-border bg-background/60 px-4 py-3">
+                  <p.icon className="h-5 w-5 text-destructive" />
+                  <span className="text-sm font-medium text-foreground">{p.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-3xl border border-accent/40 bg-card p-8 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
+                <HardHat className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-bold text-primary">EPIs obrigatórios em áreas operacionais</h3>
+            </div>
+            <ul className="mt-6 space-y-3">
+              {obrigatorio.map((o) => (
+                <li key={o.label} className="flex items-center gap-3 rounded-xl border border-border bg-background/60 px-4 py-3">
+                  <CheckCircle2 className="h-5 w-5 text-accent" />
+                  <o.icon className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium text-foreground">{o.label}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-xs text-muted-foreground">
+              Os EPIs serão fornecidos pela equipe Wilson, Sons no momento da visita, conforme necessidade do roteiro.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <a href="#agendar">
+              Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const items = [
     { icon: Mail, label: "E-mail", value: "visitas@wilsonsons.com.br" },
