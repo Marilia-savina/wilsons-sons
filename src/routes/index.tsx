@@ -37,7 +37,7 @@ function Index() {
         <About />
         <VideoSection />
         <Audience />
-        <SafetyRules onAgree={() => setShowForm(true)} />
+        <SafetyRules showForm={showForm} onToggle={() => setShowForm((v) => !v)} />
         {showForm && <Schedule />}
         <Contact />
       </main>
@@ -268,7 +268,7 @@ function VideoSection() {
   );
 }
 
-function SafetyRules({ onAgree }: { onAgree: () => void }) {
+function SafetyRules({ showForm, onToggle }: { showForm: boolean; onToggle: () => void }) {
   const infos = [
     { icon: Info, title: "Antes da visita", desc: "Você receberá por e-mail a confirmação da data, horário e ponto de encontro na unidade escolhida." },
     { icon: ShieldCheck, title: "Documentação", desc: "Apresente um documento oficial com foto na portaria. Visitantes estrangeiros devem trazer passaporte." },
@@ -351,8 +351,8 @@ function SafetyRules({ onAgree }: { onAgree: () => void }) {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={onAgree}>
-            Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={onToggle}>
+            {showForm ? "Ocultar formulário" : "Li e concordo — agendar minha visita"} <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>
