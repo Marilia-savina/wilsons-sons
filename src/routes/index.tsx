@@ -21,6 +21,14 @@ export const Route = createFileRoute("/")({
 const FORM_EMBED = "https://docs.google.com/forms/d/1Lrr1JpmhrW-_MZ0PIFOu8JDHfxC4J7Ddi43f6NpUUqo/viewform?embedded=true";
 
 function Index() {
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    if (showForm) {
+      document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showForm]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -29,8 +37,8 @@ function Index() {
         <About />
         <VideoSection />
         <Audience />
-        <SafetyRules />
-        <Schedule />
+        <SafetyRules onAgree={() => setShowForm(true)} />
+        {showForm && <Schedule />}
         <Contact />
       </main>
       <Footer />
