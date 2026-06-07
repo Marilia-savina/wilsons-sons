@@ -268,7 +268,7 @@ function VideoSection() {
   );
 }
 
-function SafetyRules({ onAgree }: { onAgree: () => void }) {
+function SafetyRules({ showForm, onToggle }: { showForm: boolean; onToggle: () => void }) {
   const infos = [
     { icon: Info, title: "Antes da visita", desc: "Você receberá por e-mail a confirmação da data, horário e ponto de encontro na unidade escolhida." },
     { icon: ShieldCheck, title: "Documentação", desc: "Apresente um documento oficial com foto na portaria. Visitantes estrangeiros devem trazer passaporte." },
