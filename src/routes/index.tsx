@@ -351,10 +351,8 @@ function SafetyRules({ onAgree }: { onAgree: () => void }) {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <a href="#agendar">
-              Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={onAgree}>
+            Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>
