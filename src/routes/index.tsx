@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Anchor, Ship, Calendar, Users, GraduationCap, Building2, Briefcase, Mail, MapPin, Phone, ArrowRight, ShieldCheck, Clock } from "lucide-react";
+import { Anchor, Ship, Calendar, Users, GraduationCap, Building2, Briefcase, Mail, MapPin, Phone, ArrowRight, ShieldCheck, Clock, Info, AlertTriangle, HardHat, Shirt, Footprints, CheckCircle2, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroPort from "@/assets/hero-port.jpg";
+import wsLogo from "@/assets/ws-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,7 +26,9 @@ function Index() {
       <main>
         <Hero />
         <About />
+        <VideoSection />
         <Audience />
+        <SafetyRules />
         <Schedule />
         <Contact />
       </main>
@@ -45,8 +48,8 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-hero text-primary-foreground shadow-elegant">
-            <Anchor className="h-5 w-5" />
+          <span className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-hero shadow-elegant">
+            <img src={wsLogo} alt="Wilson, Sons" className="h-7 w-7 object-contain" width={40} height={40} />
           </span>
           <div className="leading-tight">
             <div className="text-base font-bold tracking-tight text-primary">Wilson, Sons</div>
