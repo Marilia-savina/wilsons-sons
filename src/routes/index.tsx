@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Anchor, Ship, Calendar, Users, GraduationCap, Building2, Briefcase, Mail, MapPin, Phone, ArrowRight, ShieldCheck, Clock, Info, AlertTriangle, HardHat, Shirt, Footprints, CheckCircle2, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,14 @@ export const Route = createFileRoute("/")({
 const FORM_EMBED = "https://docs.google.com/forms/d/1Lrr1JpmhrW-_MZ0PIFOu8JDHfxC4J7Ddi43f6NpUUqo/viewform?embedded=true";
 
 function Index() {
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    if (showForm) {
+      document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showForm]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -28,8 +37,8 @@ function Index() {
         <About />
         <VideoSection />
         <Audience />
-        <SafetyRules />
-        <Schedule />
+        <SafetyRules onAgree={() => setShowForm(true)} />
+        {showForm && <Schedule />}
         <Contact />
       </main>
       <Footer />
@@ -259,7 +268,7 @@ function VideoSection() {
   );
 }
 
-function SafetyRules() {
+function SafetyRules({ onAgree }: { onAgree: () => void }) {
   const infos = [
     { icon: Info, title: "Antes da visita", desc: "Você receberá por e-mail a confirmação da data, horário e ponto de encontro na unidade escolhida." },
     { icon: ShieldCheck, title: "Documentação", desc: "Apresente um documento oficial com foto na portaria. Visitantes estrangeiros devem trazer passaporte." },
@@ -342,10 +351,8 @@ function SafetyRules() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <a href="#agendar">
-              Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={onAgree}>
+            Li e concordo — agendar minha visita <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>
