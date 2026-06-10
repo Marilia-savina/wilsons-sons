@@ -59,10 +59,10 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <img src={wsLogo} alt="Wilson, Sons" className="h-11 w-auto object-contain" />
-          <span className="hidden text-lg font-bold tracking-tight sm:block">Wilson, Sons</span>
-          <div className="hidden leading-tight sm:block border-l border-border/60 pl-3">
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Agendamento de Visitas</div>
+          <img src={wsLogo} alt="Wilson, Sons" className="h-10 w-auto object-contain" />
+          <div className="hidden flex-col sm:flex">
+            <span className="whitespace-nowrap text-lg font-bold tracking-tight leading-none">Wilson, Sons</span>
+            <span className="text-[11px] uppercase tracking-wider text-muted-foreground mt-0.5">Agendamento de Visitas</span>
           </div>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
