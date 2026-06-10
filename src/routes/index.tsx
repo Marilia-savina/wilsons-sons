@@ -58,12 +58,9 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
-        <a href="#inicio" className="flex items-center gap-2.5">
-          <span className="flex h-10 w-auto items-center justify-center rounded-lg bg-gradient-hero shadow-elegant px-1.5">
-            <img src={wsLogo} alt="Wilson, Sons" className="h-8 w-auto object-contain" />
-          </span>
-          <div className="leading-tight">
-            <div className="text-base font-bold tracking-tight text-primary">Wilson, Sons</div>
+        <a href="#inicio" className="flex items-center gap-3">
+          <img src={wsLogo} alt="Wilson, Sons" className="h-9 w-auto object-contain" />
+          <div className="hidden leading-tight sm:block border-l border-border/60 pl-3">
             <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Agendamento de Visitas</div>
           </div>
         </a>
@@ -351,8 +348,13 @@ function SafetyRules({ showForm, onToggle }: { showForm: boolean; onToggle: () =
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={onToggle}>
-            {showForm ? "Ocultar formulário" : "Li e concordo — agendar minha visita"} <ArrowRight className="ml-1 h-4 w-4" />
+          <Button
+            size="lg"
+            className="h-14 rounded-xl bg-accent px-10 text-base font-semibold text-accent-foreground shadow-glow hover:bg-accent/90 md:px-12"
+            onClick={onToggle}
+          >
+            {showForm ? "Ocultar formulário" : "Li e concordo — agendar minha visita"}
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </div>
