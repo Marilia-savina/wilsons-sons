@@ -59,7 +59,8 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <img src={wsLogo} alt="Wilson, Sons" className="h-9 w-auto object-contain" />
+          <img src={wsLogo} alt="Wilson, Sons" className="h-11 w-auto object-contain" />
+          <span className="hidden text-lg font-bold tracking-tight sm:block">Wilson, Sons</span>
           <div className="hidden leading-tight sm:block border-l border-border/60 pl-3">
             <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Agendamento de Visitas</div>
           </div>
@@ -71,7 +72,7 @@ function Header() {
             </a>
           ))}
         </nav>
-        <Button asChild size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+        <Button asChild size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 ml-4">
           <a href="#agendar">Agendar</a>
         </Button>
       </div>
