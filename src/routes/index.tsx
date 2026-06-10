@@ -59,8 +59,8 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-hero shadow-elegant">
-            <img src={wsLogo} alt="Wilson, Sons" className="h-7 w-7 object-contain" width={40} height={40} />
+          <span className="flex h-10 w-auto items-center justify-center rounded-lg bg-gradient-hero shadow-elegant px-1.5">
+            <img src={wsLogo} alt="Wilson, Sons" className="h-8 w-auto object-contain" />
           </span>
           <div className="leading-tight">
             <div className="text-base font-bold tracking-tight text-primary">Wilson, Sons</div>
